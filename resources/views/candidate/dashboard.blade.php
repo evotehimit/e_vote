@@ -109,6 +109,8 @@
 						<label>TTL :</label>{{$pribadika->tmp_lahir}}, {{$pribadika->tgl_lahir}}<br>
 						<label>Jenis Kelamin :</label>{{$pribadika->sex}}<br>
 						<label>Agama :</label>{{$pribadika->agama}}<br>
+						<label>IP Semester 1 :</label>{{$pribadika->ip_1}}<br>
+						<label>IP Semester 2 :</label>{{$pribadika->ip_2}}<br>
 						<br>
 						<div>Data Pribadi Wakil Kandidat</div>
 						<label>NRP :</label>{{$pribadiwaka->nrp}}<br>
