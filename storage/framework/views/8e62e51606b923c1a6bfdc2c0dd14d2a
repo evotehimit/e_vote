@@ -40,14 +40,14 @@
 			<?php echo Form::close(); ?>
 
 		</div>
-	<?php elseif($pribadi->where('nrp',$data->nrp_caka)->count()==0): ?>
+	<?php elseif($cekcaka==0): ?>
 	<div class="first-login">Silakan Lengkapi Data dibawah ini !</div><br>
 	<div class="form">
 		<div><h3>Masukkan Data Diri :</h3></div><hr>
 		<?php echo Form::open(array('action'=>'CandidateController@inputpribadi')); ?>
 
 		<div align="left">
-			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" value="<?php echo e($data->nrp_caka); ?>" readonly="readonly"><span class="input-group-addon" id="warning"> *</span></div><br>
 			<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="alamat" type="textarea" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="Telp." ><span class="input-group-addon" id="warning">*</span></div><br>
@@ -78,14 +78,14 @@
 		<?php echo Form::close(); ?>
 
 	</div>
-	<?php elseif($pribadi->where('nrp',$data->nrp_cawaka)->count()==0): ?>
+	<?php elseif($cekcawaka==0): ?>
 	<div class="first-login">Silakan Lengkapi Data di bawah ini !</div><br>
 		<div class="form" >
 		<div><h3>Masukkan Data Diri Wakil Ketua :</h3></div><hr>
 		<?php echo Form::open(array('action'=>'CandidateController@inputpribadi')); ?>
 
 		<div align="left">
-		<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" value="<?php echo e($data->nrp_cawaka); ?>" readonly="readonly"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="alamat" type="text" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="TELP."><span class="input-group-addon" id="warning">*</span></div><br>
@@ -102,7 +102,7 @@
 		<?php echo Form::close(); ?>
 
 	</div>
-	<?php elseif($pribadi->where('nrp',$data->nrp_caka)->count()>0 and $pribadi->where('nrp',$data->nrp_cawaka)->count()>0): ?>
+	<?php elseif($cekcaka>0 and $cekcawaka>0): ?>
 	|<a href="javascript:navigate_tabs('data_diri','tab-data_diri');" class="buttons">Data Diri</a>|
 	<a href="javascript:navigate_tabs('pendidikan','tab-pendidikan');" class="buttons">Riwayat Pendidikan</a>|
 	<a href="javascript:navigate_tabs('prestasi','tab-prestasi');" class="buttons">Prestasi</a>|
@@ -111,24 +111,26 @@
 
 	<div id="isi" class="data_diri">
 						<div>Data Pribadi Ketua Kandidat</div>
-						<label>NRP :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->nrp); ?><br>
-						<label>Foto :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->foto); ?><br>
-						<label>Alamat :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->alamat); ?><br>
-						<label>HP :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->telepon); ?><br>
-						<label>Email :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->email); ?><br>
-						<label>TTL :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->tmp_lahir); ?>, <?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->tgl_lahir); ?><br>
-						<label>Jenis Kelamin :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->sex); ?><br>
-						<label>Agama :</label><?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->agama); ?><br>
+						<label>NRP :</label><?php echo e($pribadika->nrp); ?><br>
+						<label>Foto :</label><?php echo e($pribadika->foto); ?><br>
+						<label>Alamat :</label><?php echo e($pribadika->alamat); ?><br>
+						<label>HP :</label><?php echo e($pribadika->telepon); ?><br>
+						<label>Email :</label><?php echo e($pribadika->email); ?><br>
+						<label>TTL :</label><?php echo e($pribadika->tmp_lahir); ?>, <?php echo e($pribadika->tgl_lahir); ?><br>
+						<label>Jenis Kelamin :</label><?php echo e($pribadika->sex); ?><br>
+						<label>Agama :</label><?php echo e($pribadika->agama); ?><br>
+						<label>IP Semester 1 :</label><?php echo e($pribadika->ip_1); ?><br>
+						<label>IP Semester 2 :</label><?php echo e($pribadika->ip_2); ?><br>
 						<br>
 						<div>Data Pribadi Wakil Kandidat</div>
-						<label>NRP :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->nrp); ?><br>
-						<label>Foto :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->foto); ?><br>
-						<label>Alamat :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->alamat); ?><br>
-						<label>HP :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->telepon); ?><br>
-						<label>Email :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->email); ?><br>
-						<label>TTL :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->tmp_lahir); ?>, <?php echo e($pribadi->where('nrp',$data->nrp_caka)->first()->tgl_lahir); ?><br>
-						<label>Jenis Kelamin :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->sex); ?><br>
-						<label>Agama :</label><?php echo e($pribadi->where('nrp',$data->nrp_cawaka)->first()->agama); ?><br>
+						<label>NRP :</label><?php echo e($pribadiwaka->nrp); ?><br>
+						<label>Foto :</label><?php echo e($pribadiwaka->foto); ?><br>
+						<label>Alamat :</label><?php echo e($pribadiwaka->alamat); ?><br>
+						<label>HP :</label><?php echo e($pribadiwaka->telepon); ?><br>
+						<label>Email :</label><?php echo e($pribadiwaka->email); ?><br>
+						<label>TTL :</label><?php echo e($pribadiwaka->tmp_lahir); ?>, <?php echo e($pribadiwaka->tgl_lahir); ?><br>
+						<label>Jenis Kelamin :</label><?php echo e($pribadiwaka->sex); ?><br>
+						<label>Agama :</label><?php echo e($pribadiwaka->agama); ?><br>
 	</div>
 
 	<div class="pendidikan" style="display:none;">

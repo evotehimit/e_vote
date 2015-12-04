@@ -45,7 +45,7 @@
 		<div><h3>Masukkan Data Diri :</h3></div><hr>
 		{!! Form::open(array('action'=>'CandidateController@inputpribadi')) !!}
 		<div align="left">
-			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" readonly="readonly"><span class="input-group-addon" id="warning"> *</span></div><br>
+			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" value="{{$data->nrp_caka}}" readonly="readonly"><span class="input-group-addon" id="warning"> *</span></div><br>
 			<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="alamat" type="textarea" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="Telp." ><span class="input-group-addon" id="warning">*</span></div><br>
