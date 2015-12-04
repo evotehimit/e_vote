@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My site</title>
+</head>
+<body>
+<?php echo Form::open(); ?>
+
+<?php echo Form::close(); ?>
+
+</body>
+</html>

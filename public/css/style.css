@@ -1,0 +1,114 @@
+a{
+	text-decoration: none;
+}
+.header{
+  	min-height:65px;
+    background-color:#35b0f4;
+    color: #fff;
+}
+.footer{
+    background-color:#009bef; 
+    min-height:50px;
+    color: #fff;
+}
+.isi{
+    min-height:530px;
+    padding-left:100px;
+    padding-right:100px;
+    padding-top: 20px;
+    padding-bottom: 2     0px;
+}
+.body{
+    width: 100%;
+    min-height: 560px;
+    margin: 0;
+    padding: 0;
+    color: #21a6ef;
+}
+#button{
+	background-color:#167ee1;
+	color:#ffffff;
+	font-size:16px;
+}
+#button:hover{
+	background-color:#fff;
+	color:#167ee1;
+	font-size:16px;
+}
+div span.input-group-addon{
+	background-color: #009bef;
+	color: #fff;
+	font-weight: bold;;
+}
+
+.brand{
+	font-size: 20pt;
+	padding-left: 19px;
+}
+
+.kiri{
+	position: relative;
+	width: 25%;
+	margin-left: 15px;
+	display: inline-block;
+}
+.tengah{
+	padding-top: 10px;
+	position: relative;
+	width: 45%;
+	display: inline-block;
+	text-align: center;
+}
+
+.kanan{
+	width: 25%;
+	position: relative;
+	display: inline-block;
+	margin-left: 15px;
+	text-align: right;
+}
+.login{
+	position: relative;
+	width: 500px;
+	margin: auto;
+	margin-top: 30px;
+	padding: 10px 20px 20px 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.change-password{
+	margin-top: 30px;
+	padding: 10px 20px 20px 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: center;
+	width: 40%;
+	margin: auto;
+}
+.form{
+	padding: 10px 20px 20px 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: center;
+	width: 40%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.first-login{
+	position: relative;
+	font-size: 20px;
+	padding: 10px 20px 10px 25px;
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+}
+#warning{
+	background-color: #fff;
+	border: 0px;
+	color: red;
+	margin:0;
+	padding: 0;
+	padding-left: 7px;
+
+}
