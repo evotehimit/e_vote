@@ -39,13 +39,13 @@
 					<input class="btn btn-default" id="button" type="submit" value="Change">
 			{!! Form::close() !!}
 		</div>
-	@elseif($pribadi->where('nrp',$data->nrp_caka)->count()==0)
+	@elseif($cekcaka==0)
 	<div class="first-login">Silakan Lengkapi Data dibawah ini !</div><br>
 	<div class="form">
 		<div><h3>Masukkan Data Diri :</h3></div><hr>
 		{!! Form::open(array('action'=>'CandidateController@inputpribadi')) !!}
 		<div align="left">
-			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" readonly="readonly"><span class="input-group-addon" id="warning"> *</span></div><br>
 			<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="alamat" type="textarea" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="Telp." ><span class="input-group-addon" id="warning">*</span></div><br>
@@ -71,13 +71,13 @@
 			{!! Form::submit('Daftar dan Lanjutkan') !!}
 		{!! Form::close() !!}
 	</div>
-	@elseif($pribadi->where('nrp',$data->nrp_cawaka)->count()==0)
+	@elseif($cekcawaka==0)
 	<div class="first-login">Silakan Lengkapi Data di bawah ini !</div><br>
 		<div class="form" >
 		<div><h3>Masukkan Data Diri Wakil Ketua :</h3></div><hr>
 		{!! Form::open(array('action'=>'CandidateController@inputpribadi')) !!}
 		<div align="left">
-		<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" value="{{$data->nrp_cawaka}}" readonly="readonly"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="alamat" type="text" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="TELP."><span class="input-group-addon" id="warning">*</span></div><br>
@@ -92,7 +92,7 @@
 		{!! Form::submit('Simpan dan Lanjutkan') !!}
 		{!! Form::close() !!}
 	</div>
-	@elseif($pribadi->where('nrp',$data->nrp_caka)->count()>0 and $pribadi->where('nrp',$data->nrp_cawaka)->count()>0)
+	@elseif($cekcaka>0 and $cekcawaka>0)
 	|<a href="javascript:navigate_tabs('data_diri','tab-data_diri');" class="buttons">Data Diri</a>|
 	<a href="javascript:navigate_tabs('pendidikan','tab-pendidikan');" class="buttons">Riwayat Pendidikan</a>|
 	<a href="javascript:navigate_tabs('prestasi','tab-prestasi');" class="buttons">Prestasi</a>|
@@ -101,24 +101,24 @@
 
 	<div id="isi" class="data_diri">
 						<div>Data Pribadi Ketua Kandidat</div>
-						<label>NRP :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->nrp}}<br>
-						<label>Foto :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->foto}}<br>
-						<label>Alamat :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->alamat}}<br>
-						<label>HP :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->telepon}}<br>
-						<label>Email :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->email}}<br>
-						<label>TTL :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->tmp_lahir}}, {{$pribadi->where('nrp',$data->nrp_caka)->first()->tgl_lahir}}<br>
-						<label>Jenis Kelamin :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->sex}}<br>
-						<label>Agama :</label>{{$pribadi->where('nrp',$data->nrp_caka)->first()->agama}}<br>
+						<label>NRP :</label>{{$pribadika->nrp}}<br>
+						<label>Foto :</label>{{$pribadika->foto}}<br>
+						<label>Alamat :</label>{{$pribadika->alamat}}<br>
+						<label>HP :</label>{{$pribadika->telepon}}<br>
+						<label>Email :</label>{{$pribadika->email}}<br>
+						<label>TTL :</label>{{$pribadika->tmp_lahir}}, {{$pribadika->tgl_lahir}}<br>
+						<label>Jenis Kelamin :</label>{{$pribadika->sex}}<br>
+						<label>Agama :</label>{{$pribadika->agama}}<br>
 						<br>
 						<div>Data Pribadi Wakil Kandidat</div>
-						<label>NRP :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->nrp}}<br>
-						<label>Foto :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->foto}}<br>
-						<label>Alamat :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->alamat}}<br>
-						<label>HP :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->telepon}}<br>
-						<label>Email :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->email}}<br>
-						<label>TTL :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->tmp_lahir}}, {{$pribadi->where('nrp',$data->nrp_caka)->first()->tgl_lahir}}<br>
-						<label>Jenis Kelamin :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->sex}}<br>
-						<label>Agama :</label>{{$pribadi->where('nrp',$data->nrp_cawaka)->first()->agama}}<br>
+						<label>NRP :</label>{{$pribadiwaka->nrp}}<br>
+						<label>Foto :</label>{{$pribadiwaka->foto}}<br>
+						<label>Alamat :</label>{{$pribadiwaka->alamat}}<br>
+						<label>HP :</label>{{$pribadiwaka->telepon}}<br>
+						<label>Email :</label>{{$pribadiwaka->email}}<br>
+						<label>TTL :</label>{{$pribadiwaka->tmp_lahir}}, {{$pribadiwaka->tgl_lahir}}<br>
+						<label>Jenis Kelamin :</label>{{$pribadiwaka->sex}}<br>
+						<label>Agama :</label>{{$pribadiwaka->agama}}<br>
 	</div>
 
 	<div class="pendidikan" style="display:none;">

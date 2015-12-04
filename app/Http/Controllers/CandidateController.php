@@ -29,7 +29,10 @@ class CandidateController extends Controller
             $id = $request->session()->get('kandidat');
             $data = Candidate::where('id', $id)->first();
             $hak_akses = $data->hak_akses;
-            $pribadi = Pribadi::all();
+            $pribadika = Pribadi::where('nrp', $data->nrp_caka)->first();
+            $pribadiwaka = Pribadi::where('nrp', $data->nrp_cawaka)->first();
+            $cekcaka = Pribadi::where('nrp', $data->nrp_caka)->count();
+            $cekcawaka = Pribadi::where('nrp', $data->nrp_cawaka)->count();
             $pendidikan = Pendidikan::all();
             $prestasi = Prestasi::all();
             $pelatihan = Pelatihan::all();
@@ -37,7 +40,10 @@ class CandidateController extends Controller
             return view('candidate.dashboard', compact(
                 'data',
                 'hak_akses',
-                'pribadi',
+                'pribadika',
+                'pribadiwaka',
+                'cekcaka',
+                'cekcawaka',
                 'pendidikan',
                 'prestasi',
                 'pelatihan',
