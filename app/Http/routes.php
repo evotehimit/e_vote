@@ -18,10 +18,11 @@ Route::post('login', 'LoginCandidateController@postlogin');
 Route::get('dashboard', 'CandidateController@dashboard');
 Route::post('dashboard/editpass', 'CandidateController@changepassword');
 Route::post('dashboard/datapribadi', 'CandidateController@inputpribadi');
+Route::post('dashboard/uploaddata', 'CandidateController@upload');
 
 Route::get('admin', 'AdminController@index');
-Route::get('admin/login', 'LoginAdminController@getlogin');
-Route::post('admin/login', 'LoginAdminController@postlogin');
-Route::get('admin/logout', 'LoginAdminController@logout');
-Route::get('admin/dashboard', 'AdminController@dashboard');
-Route::post('admin/tambahkandidat');
+Route::get('adminlogin', 'LoginAdminController@getlogin');
+Route::post('adminlogin', 'LoginAdminController@postlogin');
+Route::get('adminlogout', 'LoginAdminController@logout');
+Route::get('admindashboard', 'AdminController@dashboard');
+Route::post('admin/tambahkandidat', 'AdminController@tambahkandidat');

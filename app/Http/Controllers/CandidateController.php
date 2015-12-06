@@ -81,4 +81,10 @@ class CandidateController extends Controller
         $input->save();
         return redirect()->action('CandidateController@dashboard');
     }
+    public function upload(Request $request){
+        $file = Input::file('data');
+        $filename = $file->getClientOriginalName();
+        $destinationPath = 'berkas_kandidat/';
+        $file->move($destinationPath, $filename);
+    }
 }
