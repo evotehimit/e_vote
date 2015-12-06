@@ -17,9 +17,11 @@ Route::get('logout', 'LoginCandidateController@logout');
 Route::post('login', 'LoginCandidateController@postlogin');
 Route::get('dashboard', 'CandidateController@dashboard');
 Route::post('dashboard/editpass', 'CandidateController@changepassword');
-Route::post('dashboard/daftarcawaka', 'CandidateController@daftarcawaka');
 Route::post('dashboard/datapribadi', 'CandidateController@inputpribadi');
-Route::post('dashboard/pendidikan', 'CandidateController@pendidikan');
-Route::post('dashboard/prestasi', 'CandidateController@prestasi');
-Route::post('dashboard/organisasi', 'CandidateController@organisasi');
-Route::post('dashboard/pelatihan', 'CandidateController@pelatihan');
+
+Route::get('admin', 'AdminController@index');
+Route::get('admin/login', 'LoginAdminController@getlogin');
+Route::post('admin/login', 'LoginAdminController@postlogin');
+Route::get('admin/logout', 'LoginAdminController@logout');
+Route::get('admin/dashboard', 'AdminController@dashboard');
+Route::post('admin/tambahkandidat');

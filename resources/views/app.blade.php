@@ -51,7 +51,7 @@
 	
 	<div class="body">@yield('body')</div>
 	<div class="panel panel-default" style="text-align:center;height:35px;">
-		<div class="panel-body footer">© 2015 E-VOTE | Department of Research and Technology HIMIT PENS</div>
+		<div class="panel-body footer">© E-VOTE | SUKSESI HIMIT PENS 2015</div>
 	</div>
 </div>
 </body>

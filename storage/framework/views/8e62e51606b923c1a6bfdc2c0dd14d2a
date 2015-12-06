@@ -3,16 +3,7 @@
 	function navigate_tabs(container, tab)
 	{
 		$(".data_diri").css('display' , 'none');
-		$(".pendidikan").css('display' , 'none');
-		$(".prestasi").css('display' , 'none');
-		$(".organisasi").css('display' , 'none');
-		$(".pelatihan").css('display' , 'none');
-
 		$("#tab-data_diri").removeClass('buttonHover');
-		$("#tab-pendidikan").removeClass('buttonHover');
-		$("#tab-prestasi").removeClass('buttonHover');
-		$("#tab-organisasi").removeClass('buttonHover');
-		$("#tab-pelatihan").removeClass('buttonHover');
 
 		$("#"+tab).addClass('buttonHover');
 		$("."+container).show('fast');
@@ -31,11 +22,6 @@
   						<span class="input-group-addon" id="sizing-addon1">#</span>
   						<input type="password" class="form-control" name="pass" placeholder="New Password" aria-describedby="sizing-addon1">
 					</div><br>
-					<div class="input-group input-group">
-  						<span class="input-group-addon" id="sizing-addon1">#</span>
-  						<input type="password" class="form-control" name="confirmpass" placeholder="New Password Confirmation" aria-describedby="sizing-addon1">
-					</div>
-					<br>
 					<input class="btn btn-default" id="button" type="submit" value="Change">
 			<?php echo Form::close(); ?>
 
@@ -44,11 +30,10 @@
 	<div class="first-login">Silakan Lengkapi Data dibawah ini !</div><br>
 	<div class="form">
 		<div><h3>Masukkan Data Diri :</h3></div><hr>
-		<?php echo Form::open(array('action'=>'CandidateController@inputpribadi')); ?>
+		<?php echo Form::open(array('url'=>'dashboard/datapribadi', 'files'=>'true', 'method'=>'post')); ?>
 
 		<div align="left">
 			<div class="input-group"><label>NRP : </label><input name="nrp" type="text" class="form-control" placeholder="NRP" value="<?php echo e($data->nrp_caka); ?>" size="20" readonly="readonly"><span class="" id="warning"></span></div><br>
-			<div class="input-group"><input name="foto" type="text" class="form-control" id="form-span" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><textarea  name="alamat"  class="form-control" id="form-span" placeholder="Alamat" cols="50" rows="3"></textarea> <span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="telepon" type="text" class="form-control" id="form-span" placeholder="No. Telp" size="15"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="email" type="text" class="form-control" id="form-span" placeholder="E-mail : x.@gmail.com"><span class="input-group-addon" id="warning">*</span></div><br>
@@ -75,6 +60,8 @@
 			</div><br>
 			<div class="input-group"><input name="ip_1" type="text" class="form-control" placeholder="Nilai IP Semester1"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="ip_2" type="text" class="form-control" placeholder="Nilai IP Semester2"><span class="input-group-addon" id="warning">*</span></div>
+			<?php echo Form::file('image'); ?>
+
 			<hr>
 			<h5 style="color:red;">* Wajib Diisi!</h5>
 			<div align="center"><input class="btn btn-default" id="button" type="submit" value="Simpan dan Lanjutkan"></div>
@@ -97,11 +84,10 @@
 	<div class="first-login">Silakan Lengkapi Data di bawah ini !</div><br>
 		<div class="form" >
 		<div><h3>Masukkan Data Diri Wakil Ketua :</h3></div><hr>
-		<?php echo Form::open(array('action'=>'CandidateController@inputpribadi')); ?>
+		<?php echo Form::open(array('url'=>'dashboard/datapribadi', 'files'=>'true', 'method'=>'post')); ?>
 
 		<div align="left">
 		<div class="input-group"><label>NRP : </label><input name="nrp" type="text" class="form-control" placeholder="NRP" size="20" value="<?php echo e($data->nrp_cawaka); ?>" readonly="readonly"><span class="" id="warning"></span></div><br>
-		<div class="input-group"><input name="foto" type="text" class="form-control" id="form-span" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="alamat" type="text" class="form-control" id="form-span" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="telepon" type="text" class="form-control" id="form-span" placeholder="No. Telp"><span class="input-group-addon" id="warning">*</span></div><br>
 		<div class="input-group"><input name="email" type="text" class="form-control" id="form-span" placeholder="E-mail : x.@gmail.com"><span class="input-group-addon" id="warning">*</span></div><br>
@@ -126,6 +112,8 @@
 				      </select>
 				 <span class="input-group-addon" id="warning">*</span>
 			</div><br>
+			<?php echo Form::file('image'); ?>
+
 		<hr>
 			<h5 style="color:red;">* Wajib Diisi!</h5>
 		</div>
@@ -136,10 +124,6 @@
 	<?php elseif($cekcaka>0 and $cekcawaka>0): ?>
 	<div id="tab" align="center">
 	<a href="javascript:navigate_tabs('data_diri','tab-data_diri');"><div id="tabmenu">Data Diri</div></a>
-	<a href="javascript:navigate_tabs('pendidikan','tab-pendidikan');" class="buttons"><div id="tabmenu">Riwayat Pendidikan</div></a>
-	<a href="javascript:navigate_tabs('prestasi','tab-prestasi');" class="buttons" ><div id="tabmenu">Prestasi</div></a>
-	<a href="javascript:navigate_tabs('organisasi','tab-organisasi');" class="buttons" ><div id="tabmenu">Organisasi</div></a>
-	<a href="javascript:navigate_tabs('pelatihan','tab-pelatihan');" class="buttons"><div id="tabmenu">Pelatihan</div></a>
 	</div>
 	<div class="data_diri" align="left" style="padding:30px; min-height:500px">
 		<div class="table" style="float:left; margin:5px; width:48%; min-height:370px">
@@ -147,7 +131,7 @@
 						<table class="table">
 							<tr valign="center">
 								<td align="center" width="50%" >
-									<img src="images/<?php echo e($pribadika->foto); ?>" alt="Foto Ketua Kandidat">
+									<img src="foto_kandidat/<?php echo e($pribadika->foto); ?>" alt="Foto Ketua Kandidat">
 								</td>
 								<td align="left">
 									<table>
@@ -179,7 +163,12 @@
 										<tr>
 											<td width="40%"><label>Jenis Kelamin</label></td>
 											<td width="5%" align="left"> : </td>
-											<td><?php echo e($pribadika->sex); ?></td>
+											<td><?php if($pribadiwaka->sex==0): ?>
+													Laki-Laki
+												<?php else: ?>
+													Perempuan
+												<?php endif; ?>
+											</td>
 										</tr>
 										<tr>
 											<td width="40%"><label>Agama</label></td>
@@ -208,7 +197,7 @@
 						<table class="table">
 							<tr>
 								<td align="center" width="50%">
-									<img src="images/<?php echo e($pribadiwaka->foto); ?>" alt="Foto Ketua Kandidat">
+									<img src="foto_kandidat/<?php echo e($pribadiwaka->foto); ?>" alt="Foto Ketua Kandidat">
 								</td>
 								<td align="left">
 									<table>
@@ -240,7 +229,12 @@
 										<tr>
 											<td width="40%"><label>Jenis Kelamin</label></td>
 											<td width="5%" align="left"> : </td>
-											<td><?php echo e($pribadiwaka->sex); ?></td>
+											<td><?php if($pribadiwaka->sex==0): ?>
+													Laki-Laki
+												<?php else: ?>
+													Perempuan
+												<?php endif; ?>
+											</td>
 										</tr>
 										<tr>
 											<td width="40%"><label>Agama</label></td>
@@ -251,347 +245,7 @@
 								</td>
 							</tr>
 						</table>
-									
-				
 		</div>
-	</div>
-
-	<div class="pendidikan" style="display:none;">
-	<div class="table" align="left" style="margin:30px;">
-						<button type="button" class="btn btn-default" id="button"data-toggle="modal" data-target="#myPendidikan">Tambah Data</button>
-						<div id="myPendidikan" class="modal fade" role="dialog">
-			  				<div class="modal-dialog">
-			    				<div class="modal-content">
-			      					<div class="modal-header">
-			        					<button type="button" class="close" data-dismiss="modal">&times;</button>
-			        					<h4 class="modal-title">Data Riwayat Pendidikan</h4>
-			      					</div>
-			      					<div class="modal-body">
-								        <?php echo Form::open(array('action'=>'CandidateController@pendidikan')); ?>
-
-											<div class="input-group">
-												<select name="nrp" class="form-control" id="selected">
-														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
-												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
-												</select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group">
-												<select name="jenjang_pendidikan" class="form-control" id="selected">
-														<option value="">Pilih Jejang Pendidikan</option>
-												        <option value="SD/Mts">SMP/MTs</option>
-												        <option value="SD/MI">SD/MI</option>
-												      </select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group"><input type="text" name="nama_pendidikan" class="form-control" placeholder="Nama Instansi Pendidikan"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group"><input type="text" name="masuk_pendidikan" class="form-control" placeholder="Tahun Masuk"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group"><input type="text" name="keluar_pendidikan" class="form-control" placeholder="Tahun Keluar"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<hr>
-											<h5 style="color:red;">* Wajib Diisi!</h5>
-											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
-										<?php echo Form::close(); ?>
-
-			      					</div>
-			      					<div class="modal-footer">
-			        					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			      					</div>
-			    				</div>
-			  				</div>
-						</div>
-				
-					<div><h3>Pendidikan Ketua Kandidat :</h3></div>
-					<hr>
-					<table class="table table-hover table-striped tabel-bordered">
-						<tr style="background-color:##35b0f4;">
-							<th>Jenjang</th>
-							<th>Nama Institusi</th>
-							<th>Tahun Masuk</th>
-							<th>Tahun Keluar</th>
-						</tr>
-					<?php foreach($pendidikan->where('nrp',$data->nrp_caka) as $caka): ?>
-					<tr>
-							<td><?php echo e($caka->jenjang_pendidikan); ?></td>
-							<td><?php echo e($caka->nama_pendidikan); ?></td>
-							<td><?php echo e($caka->masuk_pendidikan); ?></td>
-							<td><?php echo e($caka->keluar_pendidikan); ?></td>
-						</tr>
-						<?php endforeach; ?>
-					</table>
-					
-					<br>
-					<div><h3>Pendidikan Wakil Ketua Kandidat :</h3></div>
-					<hr>
-					<table class="table table-hover table-striped tabel-bordered">
-						<tr style="background-color:##35b0f4;">
-							<th>Jenjang</th>
-							<th>Nama Institusi</th>
-							<th>Tahun Masuk</th>
-							<th>Tahun Keluar</th>
-						</tr>
-					<?php foreach($pendidikan->where('nrp',$data->nrp_cawaka) as $cawaka): ?>
-					<tr>
-							<td><?php echo e($cawaka->jenjang_pendidikan); ?></td>
-							<td><?php echo e($cawaka->nama_pendidikan); ?></td>
-							<td><?php echo e($cawaka->masuk_pendidikan); ?></td>
-							<td><?php echo e($cawaka->keluar_pendidikan); ?></td>
-						</tr>
-						<?php endforeach; ?>
-					</table>
-	</div>
-	</div>				
-	<div class="prestasi" style="display:none;">
-	<div class="table" align="left" style="margin:30px;">
-		<button type="button" class="btn btn-default" id="button" data-toggle="modal" data-target="#myPrestasi">Tambah Data</button>
-						<div id="myPrestasi" class="modal fade" role="dialog">
-			  				<div class="modal-dialog">
-			    				<div class="modal-content">
-			      					<div class="modal-header">
-			        					<button type="button" class="close" data-dismiss="modal">&times;</button>
-			        					<h4 class="modal-title">Prestasi</h4>
-			      					</div>
-			      					<div class="modal-body">
-								        <?php echo Form::open(array('action'=>'CandidateController@prestasi')); ?>
-
-											<div class="input-group">
-												<select name="nrp" class="form-control" id="selected">
-														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
-												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
-												</select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group"><input type="text" name="nama_prestasi" class="form-control" placeholder="Nama Prestasi"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group">
-												<select name="peringkat_prestasi" class="form-control" id="selected">
-														<option value="">Pilih Peringkat Prestasi</option>
-												        <option value="1">Juara 1</option>
-												        <option value="2">Juara 2</option>
-												        <option value="3">Juara 3</option>
-												        <option value="4">Harapan 1</option>
-												        <option value="5">Harapan 2</option>
-												        <option value="6">Harapan 3</option>
-												      </select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-												<div class="input-group">
-												<select name="tingkat_prestasi" class="form-control" id="selected">
-														<option value="">Pilih Tingkat Prestasi</option>
-														<option value="1">Internasional</option>
-												        <option value="2">Nasional</option>
-												        <option value="3">Propoinsi</option>
-												        <option value="4">Kabupaten/Kota</option>
-												      </select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group"><input type="text" name="tahun_prestasi" class="form-control" placeholder="Tahun"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<hr>
-											<h5 style="color:red;">* Wajib Diisi!</h5>
-											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
-
-										<?php echo Form::close(); ?>
-
-			      					</div>
-			      					<div class="modal-footer">
-			        					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			      					</div>
-			    				</div>
-			  				</div>
-						</div>
-						<br>
-						<div><h3>Prestasi Ketua Kandidat :</h3></div>
-						<hr>
-						<table class="table table-hover table-striped tabel-bordered">
-							<tr style="background-color:##35b0f4;">
-								<th>Nama Prestasi</th>
-								<th>Peringkat</th>
-								<th>Tingkat</th>
-								<th>Tahun</th>
-							</tr>
-						<?php foreach($prestasi->where('nrp', $data->nrp_caka) as $pres): ?>
-						<tr>
-								<td><?php echo e($pres->nama_prestasi); ?></td>
-								<td><?php echo e($pres->peringkat_prestasi); ?></td>
-								<td><?php echo e($pres->tingkat_prestasi); ?></td>
-								<td><?php echo e($pres->tahun_prestasi); ?></td>
-							</tr>
-							<?php endforeach; ?>
-						</table><br>
-						<div><h3>Prestasi Wakil Ketua Kandidat :</h3></div>
-						<hr>
-						<table class="table table-hover table-striped tabel-bordered">
-							<tr style="background-color:##35b0f4;">
-								<th>Nama Prestasi</th>
-								<th>Peringkat</th>
-								<th>Tingkat</th>
-								<th>Tahun</th>
-							</tr>
-						<?php foreach($prestasi->where('nrp', $data->nrp_cawaka) as $preswa): ?>
-						<tr>
-								<td><?php echo e($preswa->nama_prestasi); ?></td>
-								<td><?php echo e($preswa->peringkat_prestasi); ?></td>
-								<td><?php echo e($preswa->tingkat_prestasi); ?></td>
-								<td><?php echo e($preswa->tahun_prestasi); ?></td>
-							</tr>
-							<?php endforeach; ?>
-						</table>
-	</div>
-	</div>
-	<div class="organisasi" style="display:none;">
-	<div class="table" align="left" style="margin:30px;">
-		<button type="button" class="btn btn-default" id="button" data-toggle="modal" data-target="#myOrganisasi">Tambah Data</button>
-						<div id="myOrganisasi" class="modal fade" role="dialog">
-			  				<div class="modal-dialog">
-			    				<div class="modal-content">
-			      					<div class="modal-header">
-			        					<button type="button" class="close" data-dismiss="modal">&times;</button>
-			        					<h4 class="modal-title">Organisasi</h4>
-			      					</div>
-			      					<div class="modal-body">
-								        <?php echo Form::open(array('action'=>'CandidateController@organisasi')); ?>
-
-											<div class="input-group">
-												<select name="nrp" class="form-control" id="selected">
-														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
-												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
-												</select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group"><input type="text" name="nama_organisasi" class="form-control" placeholder="Nama Organisasi"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group"><input type="text" name="jabatan_organisasi" class="form-control" placeholder="Jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group"><input type="text" name="awal_organisasi" class="form-control" placeholder="Tahun jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group"><input type="text" name="akhir_organisasi" class="form-control" placeholder="AKhir Jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<hr>
-											<h5 style="color:red;">* Wajib Diisi!</h5>
-											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
-
-										<?php echo Form::close(); ?>
-
-			      					</div>
-			      					<div class="modal-footer">
-			        					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			      					</div>
-			    				</div>
-			  				</div>
-						</div>
-						<br><br>
-				<div><h3>Pengalaman Organisasi Ketua Kandidat :</h3></div>
-						<hr>
-						<table class="table table-hover table-striped tabel-bordered">
-							<tr style="background-color:##35b0f4;">
-								<th>Nama Organisasi</th>
-								<th>Jabatan</th>
-								<th>Awal Menjabat</th>
-								<th>Akhir Jabatan</th>
-							</tr>
-						<?php foreach($organisasi->where('nrp', $data->nrp_caka) as $orgake): ?>
-						<tr>
-								<td><?php echo e($orgake->nama_organisasi); ?></td>
-								<td><?php echo e($orgake->jabatan_organisasi); ?></td>
-								<td><?php echo e($orgake->awal_organisasi); ?></td>
-								<td><?php echo e($orgake->akhir_organisasi); ?></td>
-							</tr>
-							<?php endforeach; ?>
-						</table>
-						<br>
-				<div><h3>Pengalaman Organisasi Wakil Ketua Kandidat :</h3></div>
-						<hr>
-						<table class="table table-hover table-striped tabel-bordered">
-							<tr style="background-color:##35b0f4;">
-								<th>Nama Organisasi</th>
-								<th>Jabatan</th>
-								<th>Awal Menjabat</th>
-								<th>Akhir Jabatan</th>
-							</tr>
-						<?php foreach($organisasi->where('nrp', $data->nrp_cawaka) as $orgawa): ?>
-						<tr>
-								<td><?php echo e($orgawa->nama_organisasi); ?></td>
-								<td><?php echo e($orgawa->jabatan_organisasi); ?></td>
-								<td><?php echo e($orgawa->awal_organisasi); ?></td>
-								<td><?php echo e($orgawa->akhir_organisasi); ?></td>
-							</tr>
-							<?php endforeach; ?>
-						</table>
-	</div>
-	</div>
-	<div class="pelatihan" style="display:none;">
-	<div class="table" align="left" style="margin:30px;">
-		<button type="button" class="btn btn-default" id="button" data-toggle="modal" data-target="#myPelatihan">Tambah Data</button>
-						<div id="myPelatihan" class="modal fade" role="dialog">
-			  				<div class="modal-dialog">
-			    				<div class="modal-content">
-			      					<div class="modal-header">
-			        					<button type="button" class="close" data-dismiss="modal">&times;</button>
-			        					<h4 class="modal-title">Pelatihan</h4>
-			      					</div>
-			      					<div class="modal-body">
-								        <?php echo Form::open(array('action'=>'CandidateController@pelatihan')); ?>
-
-											<div class="input-group">
-												<select name="nrp" class="form-control" id="selected">
-														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
-												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
-												</select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group"><input type="text" name="nama_pelatihan" class="form-control" placeholder="Nama Pelatihan"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<div class="input-group">
-												<select name="cangkupan_pelatihan" class="form-control" id="selected">
-														<option value="">Pilih Cangkupan Pelatihan</option>
-												        <option value="1">Kampus/Sekolah</option>
-												        <option value="2">Kab/Kota</option>
-												        <option value="3">Propinsi</option>
-												        <option value="3">Nasional</option>
-												      </select>
-												 <span class="input-group-addon" id="warning">*</span>
-											</div><br>
-											<div class="input-group"><input type="text" name="tahun_pelatihan" class="form-control" placeholder="Tahun"><span class="input-group-addon" id="warning"> *</span></div><br>
-											<hr>
-											<h5 style="color:red;">* Wajib Diisi!</h5>
-											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
-										<?php echo Form::close(); ?>
-
-			      					</div>
-			      					<div class="modal-footer">
-			        					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			      					</div>
-			    				</div>
-			  				</div>
-						</div>
-						<br><br>
-				<div><h3>Pengalaman Pelatihan Ketua Kandidat :</h3></div>
-						<hr>
-						<table class="table table-hover table-striped tabel-bordered">
-							<tr style="background-color:##35b0f4;">
-								<th>Nama Pelatihan</th>
-								<th>Cangkupan</th>
-								<th>Tahun</th>
-							</tr>
-						<?php foreach($pelatihan->where('nrp', $data->nrp_caka) as $pelke): ?>
-						<tr>
-								<td><?php echo e($pelke->nama_pelatihan); ?></td>
-								<td><?php echo e($pelke->cakupan_pelatihan); ?></td>
-								<td><?php echo e($pelke->tahun_pelatihan); ?></td>
-							</tr>
-							<?php endforeach; ?>
-						</table>
-				<br>
-				<div><h3>Pengalaman Pelatihan Wakil Ketua Kandidat :</h3></div>
-					<hr>
-					<table class="table table-hover table-striped tabel-bordered">
-						<tr style="background-color:##35b0f4;">
-							<th>Nama Pelatihan</th>
-							<th>Cangkupan</th>
-							<th>Tahun</th>
-						</tr>
-					<?php foreach($pelatihan->where('nrp', $data->nrp_cawaka) as $pelwa): ?>
-					<tr>
-							<td><?php echo e($pelwa->nama_pelatihan); ?></td>
-							<td><?php echo e($pelwa->cakupan_pelatihan); ?></td>
-							<td><?php echo e($pelwa->tahun_pelatihan); ?></td>
-						</tr>
-						<?php endforeach; ?>
-					</table>
-	</div>
 	</div>
 	<?php endif; ?>
 <?php $__env->stopSection(); ?>
