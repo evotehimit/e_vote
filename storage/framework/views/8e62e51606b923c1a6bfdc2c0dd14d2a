@@ -269,7 +269,13 @@
 			      					<div class="modal-body">
 								        <?php echo Form::open(array('action'=>'CandidateController@pendidikan')); ?>
 
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
+												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group">
 												<select name="jenjang_pendidikan" class="form-control" id="selected">
 														<option value="">Pilih Jejang Pendidikan</option>
@@ -347,7 +353,13 @@
 			      					<div class="modal-body">
 								        <?php echo Form::open(array('action'=>'CandidateController@prestasi')); ?>
 
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
+												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group"><input type="text" name="nama_prestasi" class="form-control" placeholder="Nama Prestasi"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group">
 												<select name="peringkat_prestasi" class="form-control" id="selected">
@@ -437,7 +449,13 @@
 			      					<div class="modal-body">
 								        <?php echo Form::open(array('action'=>'CandidateController@organisasi')); ?>
 
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
+												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group"><input type="text" name="nama_organisasi" class="form-control" placeholder="Nama Organisasi"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group"><input type="text" name="jabatan_organisasi" class="form-control" placeholder="Jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group"><input type="text" name="awal_organisasi" class="form-control" placeholder="Tahun jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
@@ -508,7 +526,13 @@
 			      					<div class="modal-body">
 								        <?php echo Form::open(array('action'=>'CandidateController@pelatihan')); ?>
 
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="<?php echo e($data->nrp_caka); ?>"><?php echo e($data->nrp_caka); ?></option>
+												        <option value="<?php echo e($data->nrp_cawaka); ?>"><?php echo e($data->nrp_cawaka); ?></option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group"><input type="text" name="nama_pelatihan" class="form-control" placeholder="Nama Pelatihan"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group">
 												<select name="cangkupan_pelatihan" class="form-control" id="selected">

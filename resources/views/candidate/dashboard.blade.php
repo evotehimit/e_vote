@@ -261,7 +261,13 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@pendidikan')) !!}
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="{{$data->nrp_caka}}">{{$data->nrp_caka}}</option>
+												        <option value="{{$data->nrp_cawaka}}">{{$data->nrp_cawaka}}</option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group">
 												<select name="jenjang_pendidikan" class="form-control" id="selected">
 														<option value="">Pilih Jejang Pendidikan</option>
@@ -337,7 +343,13 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@prestasi')) !!}
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="{{$data->nrp_caka}}">{{$data->nrp_caka}}</option>
+												        <option value="{{$data->nrp_cawaka}}">{{$data->nrp_cawaka}}</option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group"><input type="text" name="nama_prestasi" class="form-control" placeholder="Nama Prestasi"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group">
 												<select name="peringkat_prestasi" class="form-control" id="selected">
@@ -425,7 +437,13 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@organisasi')) !!}
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="{{$data->nrp_caka}}">{{$data->nrp_caka}}</option>
+												        <option value="{{$data->nrp_cawaka}}">{{$data->nrp_cawaka}}</option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group"><input type="text" name="nama_organisasi" class="form-control" placeholder="Nama Organisasi"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group"><input type="text" name="jabatan_organisasi" class="form-control" placeholder="Jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group"><input type="text" name="awal_organisasi" class="form-control" placeholder="Tahun jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
@@ -494,7 +512,13 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@pelatihan')) !!}
-											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="nrp" class="form-control" id="selected">
+														<option value="{{$data->nrp_caka}}">{{$data->nrp_caka}}</option>
+												        <option value="{{$data->nrp_cawaka}}">{{$data->nrp_cawaka}}</option>
+												</select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
 											<div class="input-group"><input type="text" name="nama_pelatihan" class="form-control" placeholder="Nama Pelatihan"><span class="input-group-addon" id="warning"> *</span></div><br>
 											<div class="input-group">
 												<select name="cangkupan_pelatihan" class="form-control" id="selected">
