@@ -45,20 +45,37 @@
 		<div><h3>Masukkan Data Diri :</h3></div><hr>
 		{!! Form::open(array('action'=>'CandidateController@inputpribadi')) !!}
 		<div align="left">
-			<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" value="{{$data->nrp_caka}}" readonly="readonly"><span class="input-group-addon" id="warning"> *</span></div><br>
-			<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="alamat" type="textarea" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="Telp." ><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="email" type="text" class="form-control" placeholder="E-mail : @"><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="tmp_lahir" type="text" class="form-control" placeholder="Tempat Lahir"><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="tgl_lahir" type="text" class="form-control" placeholder="Tanggal lahir"><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="sex" type="text" class="form-control" placeholder="Jenis Kelamin" ><span class="input-group-addon" id="warning">*</span></div><br>
-			<div class="input-group"><input name="agama" type="text" class="form-control" placeholder="Agama"><span class="input-group-addon" id="warning">*</span></div><br>
-			<input name="ip_1" type="text" class="form-control" placeholder="IPK Semester1"><br>
-			<input name="ip_2" type="text" class="form-control" placeholder="IPK Semester2">
+			<div class="input-group"><label>NRP : </label><input name="nrp" type="text" class="form-control" placeholder="NRP" value="{{$data->nrp_caka}}" size="20" readonly="readonly"><span class="" id="warning"></span></div><br>
+			<div class="input-group"><input name="foto" type="text" class="form-control" id="form-span" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group"><textarea  name="alamat"  class="form-control" id="form-span" placeholder="Alamat" cols="50" rows="3"></textarea> <span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group"><input name="telepon" type="text" class="form-control" id="form-span" placeholder="No. Telp" size="15"><span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group"><input name="email" type="text" class="form-control" id="form-span" placeholder="E-mail : x.@gmail.com"><span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group"><input name="tmp_lahir" type="text" class="form-control" id="form-span" placeholder="Tempat Lahir"><span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group"><input name="tgl_lahir" type="text" class="form-control" id="form-span" placeholder="Tanggal lahir"><span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group">
+				<select name="sex" class="form-control" id="selected">
+						<option value="">Pilih Jenis Kelamin</option>
+				        <option value="L">Laki-laki</option>
+				        <option value="P">Perempuan</option>
+				      </select>
+				 <span class="input-group-addon" id="warning">*</span>
+			</div><br>
+			<div class="input-group">
+				<select name="agama" class="form-control">
+						<option value="">Pilih Agama</option>
+				        <option value="1">Islam</option>
+				        <option value="2">Kristen</option>
+				        <option value="3">Katolik</option>
+				        <option value="4">Hindu</option>
+				        <option value="5">Kongucu</option>
+				      </select>
+				 <span class="input-group-addon" id="warning">*</span>
+			</div><br>
+			<div class="input-group"><input name="ip_1" type="text" class="form-control" placeholder="Nilai IP Semester1"><span class="input-group-addon" id="warning">*</span></div><br>
+			<div class="input-group"><input name="ip_2" type="text" class="form-control" placeholder="Nilai IP Semester2"><span class="input-group-addon" id="warning">*</span></div>
 			<hr>
 			<h5 style="color:red;">* Wajib Diisi!</h5>
-			{!! Form::submit('Simpan dan Lanjutkan') !!}
+			<div align="center"><input class="btn btn-default" id="button" type="submit" value="Simpan dan Lanjutkan"></div>
 			{!! Form::close() !!}
 		</div>
 	</div>
@@ -68,7 +85,7 @@
 		<div><h3>Masukkan data :</h3></div><hr>
 		{!! Form::open(array('action'=>'CandidateController@daftarcawaka')) !!}
 			<input type="text" name="nrp_cawaka" class="form-control" placeholder="NRP Wakil Ketua"><hr>
-			{!! Form::submit('Daftar dan Lanjutkan') !!}
+			<div align="center"><input class="btn btn-default" id="button" type="submit" value="Daftar dan Lanjutkan"></div>
 		{!! Form::close() !!}
 	</div>
 	@elseif($cekcawaka==0)
@@ -77,69 +94,188 @@
 		<div><h3>Masukkan Data Diri Wakil Ketua :</h3></div><hr>
 		{!! Form::open(array('action'=>'CandidateController@inputpribadi')) !!}
 		<div align="left">
-		<div class="input-group"><input name="nrp" type="text" class="form-control" placeholder="NRP" value="{{$data->nrp_cawaka}}" readonly="readonly"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="foto" type="text" class="form-control" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="alamat" type="text" class="form-control" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="telepon" type="text" class="form-control" placeholder="TELP."><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="email" type="text" class="form-control" placeholder="E-Mail : @"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="tmp_lahir" type="text" class="form-control" placeholder="Tempat Lahir"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="tgl_lahir" type="text" class="form-control" placeholder="Tanggal Lahir"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="sex" type="text" class="form-control" placeholder="Jenis Kelamin"><span class="input-group-addon" id="warning">*</span></div><br>
-		<div class="input-group"><input name="agama" type="text" class="form-control" placeholder="Agama"><span class="input-group-addon" id="warning">*</span></div>
+		<div class="input-group"><label>NRP : </label><input name="nrp" type="text" class="form-control" placeholder="NRP" size="20" value="{{$data->nrp_cawaka}}" readonly="readonly"><span class="" id="warning"></span></div><br>
+		<div class="input-group"><input name="foto" type="text" class="form-control" id="form-span" placeholder="Foto"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="alamat" type="text" class="form-control" id="form-span" placeholder="Alamat"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="telepon" type="text" class="form-control" id="form-span" placeholder="No. Telp"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="email" type="text" class="form-control" id="form-span" placeholder="E-mail : x.@gmail.com"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="tmp_lahir" type="text" class="form-control" id="form-span" placeholder="Tempat Lahir"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group"><input name="tgl_lahir" type="text" class="form-control" id="form-span" placeholder="Tanggal Lahir"><span class="input-group-addon" id="warning">*</span></div><br>
+		<div class="input-group">
+				<select name="sex" class="form-control" id="selected">
+						<option value="">Pilih Jenis Kelamin</option>
+				        <option value="L">Laki-laki</option>
+				        <option value="P">Perempuan</option>
+				      </select>
+				 <span class="input-group-addon" id="warning">*</span>
+			</div><br>
+			<div class="input-group">
+				<select name="agama" class="form-control">
+						<option value="">Pilih Agama</option>
+				        <option value="1">Islam</option>
+				        <option value="2">Kristen</option>
+				        <option value="3">Katolik</option>
+				        <option value="4">Hindu</option>
+				        <option value="5">Kongucu</option>
+				      </select>
+				 <span class="input-group-addon" id="warning">*</span>
+			</div><br>
 		<hr>
 			<h5 style="color:red;">* Wajib Diisi!</h5>
 		</div>
-		{!! Form::submit('Simpan dan Lanjutkan') !!}
+		<div align="center"><input class="btn btn-default" id="button" type="submit" value="Simpan dan Lanjutkan"></div>
 		{!! Form::close() !!}
 	</div>
 	@elseif($cekcaka>0 and $cekcawaka>0)
-	|<a href="javascript:navigate_tabs('data_diri','tab-data_diri');" class="buttons">Data Diri</a>|
-	<a href="javascript:navigate_tabs('pendidikan','tab-pendidikan');" class="buttons">Riwayat Pendidikan</a>|
-	<a href="javascript:navigate_tabs('prestasi','tab-prestasi');" class="buttons">Prestasi</a>|
-	<a href="javascript:navigate_tabs('organisasi','tab-organisasi');" class="buttons">Organisasi</a>|
-	<a href="javascript:navigate_tabs('pelatihan','tab-pelatihan');" class="buttons">Pelatihan</a>|
+	<div id="tab" align="center">
+	<a href="javascript:navigate_tabs('data_diri','tab-data_diri');"><div id="tabmenu">Data Diri</div></a>
+	<a href="javascript:navigate_tabs('pendidikan','tab-pendidikan');" class="buttons"><div id="tabmenu">Riwayat Pendidikan</div></a>
+	<a href="javascript:navigate_tabs('prestasi','tab-prestasi');" class="buttons" ><div id="tabmenu">Prestasi</div></a>
+	<a href="javascript:navigate_tabs('organisasi','tab-organisasi');" class="buttons" ><div id="tabmenu">Organisasi</div></a>
+	<a href="javascript:navigate_tabs('pelatihan','tab-pelatihan');" class="buttons"><div id="tabmenu">Pelatihan</div></a>
+	</div>
+	<div class="data_diri" align="left" style="padding:30px; min-height:500px">
+		<div class="table" style="float:left; margin:5px; width:48%; min-height:370px">
+						<div><h3>Ketua Kandidat :</h3></div><hr>
+						<table class="table">
+							<tr valign="center">
+								<td align="center" width="50%" >
+									<img src="images/{{$pribadika->foto}}" alt="Foto Ketua Kandidat">
+								</td>
+								<td align="left">
+									<table>
+										<tr>
+											<td width="40%"><label>NRP</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->nrp}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>Alamat</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->alamat}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>HP</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->telepon}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>E-mail</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->email}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>TTL</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->tmp_lahir}}, {{$pribadika->tgl_lahir}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>Jenis Kelamin</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->sex}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>Agama</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->agama}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>IP Semester 1</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->ip_1}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>IP Semester 2</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadika->ip_2}}</td>
+										</tr>
 
-	<div id="isi" class="data_diri">
-						<div>Data Pribadi Ketua Kandidat</div>
-						<label>NRP :</label>{{$pribadika->nrp}}<br>
-						<label>Foto :</label>{{$pribadika->foto}}<br>
-						<label>Alamat :</label>{{$pribadika->alamat}}<br>
-						<label>HP :</label>{{$pribadika->telepon}}<br>
-						<label>Email :</label>{{$pribadika->email}}<br>
-						<label>TTL :</label>{{$pribadika->tmp_lahir}}, {{$pribadika->tgl_lahir}}<br>
-						<label>Jenis Kelamin :</label>{{$pribadika->sex}}<br>
-						<label>Agama :</label>{{$pribadika->agama}}<br>
-						<label>IP Semester 1 :</label>{{$pribadika->ip_1}}<br>
-						<label>IP Semester 2 :</label>{{$pribadika->ip_2}}<br>
-						<br>
-						<div>Data Pribadi Wakil Kandidat</div>
-						<label>NRP :</label>{{$pribadiwaka->nrp}}<br>
-						<label>Foto :</label>{{$pribadiwaka->foto}}<br>
-						<label>Alamat :</label>{{$pribadiwaka->alamat}}<br>
-						<label>HP :</label>{{$pribadiwaka->telepon}}<br>
-						<label>Email :</label>{{$pribadiwaka->email}}<br>
-						<label>TTL :</label>{{$pribadiwaka->tmp_lahir}}, {{$pribadiwaka->tgl_lahir}}<br>
-						<label>Jenis Kelamin :</label>{{$pribadiwaka->sex}}<br>
-						<label>Agama :</label>{{$pribadiwaka->agama}}<br>
+									</table>
+								</td>
+							</tr>
+						</table>
+						
+		</div>
+		<div class="table" style="float:left; margin:5px; width:48%; min-height:370px">
+			<div><h3>Wakil Ketua Kandidat :</h3></div><hr>
+						<table class="table">
+							<tr>
+								<td align="center" width="50%">
+									<img src="images/{{$pribadiwaka->foto}}" alt="Foto Ketua Kandidat">
+								</td>
+								<td align="left">
+									<table>
+										<tr>
+											<td width="40%"><label>NRP</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->nrp}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>Alamat</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->alamat}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>HP</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->telepon}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>E-mail</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->email}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>TTL</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->tmp_lahir}}, {{$pribadiwaka->tgl_lahir}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>Jenis Kelamin</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->sex}}</td>
+										</tr>
+										<tr>
+											<td width="40%"><label>Agama</label></td>
+											<td width="5%" align="left"> : </td>
+											<td>{{$pribadiwaka->agama}}</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+									
+				
+		</div>
 	</div>
 
 	<div class="pendidikan" style="display:none;">
-						<button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#myPendidikan">Tambah Data</button>
+	<div class="table" align="left" style="margin:30px;">
+						<button type="button" class="btn btn-default" id="button"data-toggle="modal" data-target="#myPendidikan">Tambah Data</button>
 						<div id="myPendidikan" class="modal fade" role="dialog">
 			  				<div class="modal-dialog">
 			    				<div class="modal-content">
 			      					<div class="modal-header">
 			        					<button type="button" class="close" data-dismiss="modal">&times;</button>
-			        					<h4 class="modal-title">Data User</h4>
+			        					<h4 class="modal-title">Data Riwayat Pendidikan</h4>
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@pendidikan')) !!}
-											Nrp :<input type="text" name="nrp"><br>
-											Jenjang :<input type="text" name="jenjang_pendidikan"><br>
-											Nama Institusi :<input type="text" name="nama_pendidikan"><br>
-											Tahun Masuk :<input type="text" name="masuk_pendidikan"><br>
-											Tahun Keluar :<input type="text" name="keluar_pendidikan"><br>
-											{!! Form::submit('Tambah') !!}
+											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="jenjang_pendidikan" class="form-control" id="selected">
+														<option value="">Pilih Jejang Pendidikan</option>
+												        <option value="SD/Mts">SMP/MTs</option>
+												        <option value="SD/MI">SD/MI</option>
+												      </select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
+											<div class="input-group"><input type="text" name="nama_pendidikan" class="form-control" placeholder="Nama Instansi Pendidikan"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="masuk_pendidikan" class="form-control" placeholder="Tahun Masuk"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="keluar_pendidikan" class="form-control" placeholder="Tahun Keluar"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<hr>
+											<h5 style="color:red;">* Wajib Diisi!</h5>
+											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
 										{!! Form::close() !!}
 			      					</div>
 			      					<div class="modal-footer">
@@ -149,27 +285,49 @@
 			  				</div>
 						</div>
 				
-					<div>Pendidikan Ketua</div>
+					<div><h3>Pendidikan Ketua Kandidat :</h3></div>
+					<hr>
+					<table class="table table-hover table-striped tabel-bordered">
+						<tr style="background-color:##35b0f4;">
+							<th>Jenjang</th>
+							<th>Nama Institusi</th>
+							<th>Tahun Masuk</th>
+							<th>Tahun Keluar</th>
+						</tr>
 					@foreach($pendidikan->where('nrp',$data->nrp_caka) as $caka)
-						Jenjang : {{ $caka->jenjang_pendidikan }} <br>
-						Nama Institusi :{{ $caka->nama_pendidikan }} <br>
-						Tahun Masuk :{{ $caka->masuk_pendidikan }} <br>
-						Tahun Keluar :{{ $caka->keluar_pendidikan }} <br><br>
-					@endforeach
-					<br><br>
-					<div>Pendidikan Wakil Ketua</div>
+					<tr>
+							<td>{{ $caka->jenjang_pendidikan }}</td>
+							<td>{{ $caka->nama_pendidikan }}</td>
+							<td>{{ $caka->masuk_pendidikan }}</td>
+							<td>{{ $caka->keluar_pendidikan }}</td>
+						</tr>
+						@endforeach
+					</table>
+					
+					<br>
+					<div><h3>Pendidikan Wakil Ketua Kandidat :</h3></div>
+					<hr>
+					<table class="table table-hover table-striped tabel-bordered">
+						<tr style="background-color:##35b0f4;">
+							<th>Jenjang</th>
+							<th>Nama Institusi</th>
+							<th>Tahun Masuk</th>
+							<th>Tahun Keluar</th>
+						</tr>
 					@foreach($pendidikan->where('nrp',$data->nrp_cawaka) as $cawaka)
-						Jenjang : {{ $cawaka->jenjang_pendidikan }} <br>
-						Nama Institusi :{{ $cawaka->nama_pendidikan }} <br>
-						Tahun Masuk :{{ $cawaka->masuk_pendidikan }} <br>
-						Tahun Keluar :{{ $cawaka->keluar_pendidikan }} <br>
-					@endforeach
-
-			
+					<tr>
+							<td>{{ $cawaka->jenjang_pendidikan }}</td>
+							<td>{{ $cawaka->nama_pendidikan }}</td>
+							<td>{{ $cawaka->masuk_pendidikan }}</td>
+							<td>{{ $cawaka->keluar_pendidikan }}</td>
+						</tr>
+						@endforeach
+					</table>
 	</div>
-						
+	</div>				
 	<div class="prestasi" style="display:none;">
-		<button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#myPrestasi">Tambah Data</button>
+	<div class="table" align="left" style="margin:30px;">
+		<button type="button" class="btn btn-default" id="button" data-toggle="modal" data-target="#myPrestasi">Tambah Data</button>
 						<div id="myPrestasi" class="modal fade" role="dialog">
 			  				<div class="modal-dialog">
 			    				<div class="modal-content">
@@ -179,12 +337,35 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@prestasi')) !!}
-											Nrp :<input type="text" name="nrp"><br>
-											Nama Prestasi :<input type="text" name="nama_prestasi"><br>
-											Peringkat :<input type="text" name="peringkat_prestasi"><br>
-											Tingkat :<input type="text" name="tingkat_prestasi"><br>
-											Tahun Prestasi :<input type="text" name="tahun_prestasi"><br>
-											{!! Form::submit('Tambah') !!}
+											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="nama_prestasi" class="form-control" placeholder="Nama Prestasi"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="peringkat_prestasi" class="form-control" id="selected">
+														<option value="">Pilih Peringkat Prestasi</option>
+												        <option value="1">Juara 1</option>
+												        <option value="2">Juara 2</option>
+												        <option value="3">Juara 3</option>
+												        <option value="4">Harapan 1</option>
+												        <option value="5">Harapan 2</option>
+												        <option value="6">Harapan 3</option>
+												      </select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
+												<div class="input-group">
+												<select name="tingkat_prestasi" class="form-control" id="selected">
+														<option value="">Pilih Tingkat Prestasi</option>
+														<option value="1">Internasional</option>
+												        <option value="2">Nasional</option>
+												        <option value="3">Propoinsi</option>
+												        <option value="4">Kabupaten/Kota</option>
+												      </select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
+											<div class="input-group"><input type="text" name="tahun_prestasi" class="form-control" placeholder="Tahun"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<hr>
+											<h5 style="color:red;">* Wajib Diisi!</h5>
+											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
+
 										{!! Form::close() !!}
 			      					</div>
 			      					<div class="modal-footer">
@@ -194,23 +375,47 @@
 			  				</div>
 						</div>
 						<br>
-						<div>Prestasi Ketua</div>
-					@foreach($prestasi->where('nrp', $data->nrp_caka) as $pres)
-						Nama Prestasi :{{$pres->nama_prestasi}}<br>
-						Peringkat :{{$pres->peringkat_prestasi}}<br>
-						Tingkat :{{$pres->tingkat_prestasi}}<br>
-						Tahun Prestasi :{{$pres->tahun_prestasi}}<br><br>
-					@endforeach
-					<div>Prestasi Wakil</div>
-					@foreach($prestasi->where('nrp', $data->nrp_cawaka) as $preswa)
-						Nama Prestasi :{{$preswa->nama_prestasi}}<br>
-						Peringkat :{{$preswa->peringkat_prestasi}}<br>
-						Tingkat :{{$preswa->tingkat_prestasi}}<br>
-						Tahun Prestasi :{{$preswa->tahun_prestasi}}<br><br>
-					@endforeach
+						<div><h3>Prestasi Ketua Kandidat :</h3></div>
+						<hr>
+						<table class="table table-hover table-striped tabel-bordered">
+							<tr style="background-color:##35b0f4;">
+								<th>Nama Prestasi</th>
+								<th>Peringkat</th>
+								<th>Tingkat</th>
+								<th>Tahun</th>
+							</tr>
+						@foreach($prestasi->where('nrp', $data->nrp_caka) as $pres)
+						<tr>
+								<td>{{$pres->nama_prestasi}}</td>
+								<td>{{$pres->peringkat_prestasi}}</td>
+								<td>{{$pres->tingkat_prestasi}}</td>
+								<td>{{$pres->tahun_prestasi}}</td>
+							</tr>
+							@endforeach
+						</table><br>
+						<div><h3>Prestasi Wakil Ketua Kandidat :</h3></div>
+						<hr>
+						<table class="table table-hover table-striped tabel-bordered">
+							<tr style="background-color:##35b0f4;">
+								<th>Nama Prestasi</th>
+								<th>Peringkat</th>
+								<th>Tingkat</th>
+								<th>Tahun</th>
+							</tr>
+						@foreach($prestasi->where('nrp', $data->nrp_cawaka) as $preswa)
+						<tr>
+								<td>{{$preswa->nama_prestasi}}</td>
+								<td>{{$preswa->peringkat_prestasi}}</td>
+								<td>{{$preswa->tingkat_prestasi}}</td>
+								<td>{{$preswa->tahun_prestasi}}</td>
+							</tr>
+							@endforeach
+						</table>
+	</div>
 	</div>
 	<div class="organisasi" style="display:none;">
-		<button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#myOrganisasi">Tambah Data</button>
+	<div class="table" align="left" style="margin:30px;">
+		<button type="button" class="btn btn-default" id="button" data-toggle="modal" data-target="#myOrganisasi">Tambah Data</button>
 						<div id="myOrganisasi" class="modal fade" role="dialog">
 			  				<div class="modal-dialog">
 			    				<div class="modal-content">
@@ -220,12 +425,15 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@organisasi')) !!}
-											Nrp :<input type="text" name="nrp"><br>
-											Nama Organisasi :<input type="text" name="nama_organisasi"><br>
-											Jabatan :<input type="text" name="jabatan_organisasi"><br>
-											Awal Jabatan :<input type="text" name="awal_organisasi"><br>
-											Akhir Jabatan :<input type="text" name="akhir_organisasi"><br>
-											{!! Form::submit('Tambah') !!}
+											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="nama_organisasi" class="form-control" placeholder="Nama Organisasi"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="jabatan_organisasi" class="form-control" placeholder="Jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="awal_organisasi" class="form-control" placeholder="Tahun jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="akhir_organisasi" class="form-control" placeholder="AKhir Jabatan"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<hr>
+											<h5 style="color:red;">* Wajib Diisi!</h5>
+											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
+
 										{!! Form::close() !!}
 			      					</div>
 			      					<div class="modal-footer">
@@ -235,23 +443,48 @@
 			  				</div>
 						</div>
 						<br><br>
-			<div>Ketua</div>
-			@foreach($organisasi->where('nrp', $data->nrp_caka) as $orgake)
-			Nama Organisasi :{{$orgake->nama_organisasi}}<br>
-			Jabatan :{{$orgake->jabatan_organisasi}}<br>
-			Awal Menjabat : {{$orgake->awal_organisasi}}<br>
-			Akhir Jabatan : {{$orgake->akhir_organisasi}}<br><br>
-			@endforeach
-			<div>Wakil</div>
-			@foreach($organisasi->where('nrp', $data->nrp_cawaka) as $orgawa)
-			Nama Organisasi :{{$orgawa->nama_organisasi}}<br>
-			Jabatan :{{$orgawa->jabatan_organisasi}}<br>
-			Awal Menjabat : {{$orgawa->awal_organisasi}}<br>
-			Akhir Jabatan : {{$orgawa->akhir_organisasi}}<br><br>
-			@endforeach
+				<div><h3>Pengalaman Organisasi Ketua Kandidat :</h3></div>
+						<hr>
+						<table class="table table-hover table-striped tabel-bordered">
+							<tr style="background-color:##35b0f4;">
+								<th>Nama Organisasi</th>
+								<th>Jabatan</th>
+								<th>Awal Menjabat</th>
+								<th>Akhir Jabatan</th>
+							</tr>
+						@foreach($organisasi->where('nrp', $data->nrp_caka) as $orgake)
+						<tr>
+								<td>{{$orgake->nama_organisasi}}</td>
+								<td>{{$orgake->jabatan_organisasi}}</td>
+								<td>{{$orgake->awal_organisasi}}</td>
+								<td>{{$orgake->akhir_organisasi}}</td>
+							</tr>
+							@endforeach
+						</table>
+						<br>
+				<div><h3>Pengalaman Organisasi Wakil Ketua Kandidat :</h3></div>
+						<hr>
+						<table class="table table-hover table-striped tabel-bordered">
+							<tr style="background-color:##35b0f4;">
+								<th>Nama Organisasi</th>
+								<th>Jabatan</th>
+								<th>Awal Menjabat</th>
+								<th>Akhir Jabatan</th>
+							</tr>
+						@foreach($organisasi->where('nrp', $data->nrp_cawaka) as $orgawa)
+						<tr>
+								<td>{{$orgawa->nama_organisasi}}</td>
+								<td>{{$orgawa->jabatan_organisasi}}</td>
+								<td>{{$orgawa->awal_organisasi}}</td>
+								<td>{{$orgawa->akhir_organisasi}}</td>
+							</tr>
+							@endforeach
+						</table>
+	</div>
 	</div>
 	<div class="pelatihan" style="display:none;">
-		<button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#myPelatihan">Tambah Data</button>
+	<div class="table" align="left" style="margin:30px;">
+		<button type="button" class="btn btn-default" id="button" data-toggle="modal" data-target="#myPelatihan">Tambah Data</button>
 						<div id="myPelatihan" class="modal fade" role="dialog">
 			  				<div class="modal-dialog">
 			    				<div class="modal-content">
@@ -261,11 +494,22 @@
 			      					</div>
 			      					<div class="modal-body">
 								        {!! Form::open(array('action'=>'CandidateController@pelatihan')) !!}
-											Nrp :<input type="text" name="nrp"><br>
-											Nama Pelatihan :<input type="text" name="nama_pelatihan"><br>
-											Cakupan :<input type="text" name="cakupan_pelatihan"><br>
-											Tahun Mengikuti :<input type="text" name="tahun_pelatihan"><br>
-											{!! Form::submit('Tambah') !!}
+											<div class="input-group"><input type="text" name="nrp" class="form-control" placeholder="NRP"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group"><input type="text" name="nama_pelatihan" class="form-control" placeholder="Nama Pelatihan"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<div class="input-group">
+												<select name="cangkupan_pelatihan" class="form-control" id="selected">
+														<option value="">Pilih Cangkupan Pelatihan</option>
+												        <option value="1">Kampus/Sekolah</option>
+												        <option value="2">Kab/Kota</option>
+												        <option value="3">Propinsi</option>
+												        <option value="3">Nasional</option>
+												      </select>
+												 <span class="input-group-addon" id="warning">*</span>
+											</div><br>
+											<div class="input-group"><input type="text" name="tahun_pelatihan" class="form-control" placeholder="Tahun"><span class="input-group-addon" id="warning"> *</span></div><br>
+											<hr>
+											<h5 style="color:red;">* Wajib Diisi!</h5>
+											<div align="center"><input class="btn btn-default" id="button" type="submit" value="Tambah"></div>
 										{!! Form::close() !!}
 			      					</div>
 			      					<div class="modal-footer">
@@ -275,19 +519,40 @@
 			  				</div>
 						</div>
 						<br><br>
-			<div>Ketua</div>
-			@foreach($pelatihan->where('nrp', $data->nrp_caka) as $pelke)
-			Nama Pelatihan :{{$pelke->nama_pelatihan}}<br>
-			Cakupan :{{$pelke->cakupan_pelatihan}}<br>
-			Tahun :{{$pelke->tahun_pelatihan}}<br><br>
-			@endforeach
-			<br>
-			<div>Wakil</div>
-			@foreach($pelatihan->where('nrp', $data->nrp_cawaka) as $pelwa)
-			Nama Pelatihan :{{$pelwa->nama_pelatihan}}<br>
-			Cakupan :{{$pelwa->cakupan_pelatihan}}<br>
-			Tahun :{{$pelwa->tahun_pelatihan}}<br><br>
-			@endforeach
+				<div><h3>Pengalaman Pelatihan Ketua Kandidat :</h3></div>
+						<hr>
+						<table class="table table-hover table-striped tabel-bordered">
+							<tr style="background-color:##35b0f4;">
+								<th>Nama Pelatihan</th>
+								<th>Cangkupan</th>
+								<th>Tahun</th>
+							</tr>
+						@foreach($pelatihan->where('nrp', $data->nrp_caka) as $pelke)
+						<tr>
+								<td>{{$pelke->nama_pelatihan}}</td>
+								<td>{{$pelke->cakupan_pelatihan}}</td>
+								<td>{{$pelke->tahun_pelatihan}}</td>
+							</tr>
+							@endforeach
+						</table>
+				<br>
+				<div><h3>Pengalaman Pelatihan Wakil Ketua Kandidat :</h3></div>
+					<hr>
+					<table class="table table-hover table-striped tabel-bordered">
+						<tr style="background-color:##35b0f4;">
+							<th>Nama Pelatihan</th>
+							<th>Cangkupan</th>
+							<th>Tahun</th>
+						</tr>
+					@foreach($pelatihan->where('nrp', $data->nrp_cawaka) as $pelwa)
+					<tr>
+							<td>{{$pelwa->nama_pelatihan}}</td>
+							<td>{{$pelwa->cakupan_pelatihan}}</td>
+							<td>{{$pelwa->tahun_pelatihan}}</td>
+						</tr>
+						@endforeach
+					</table>
+	</div>
 	</div>
 	@endif
 @endsection

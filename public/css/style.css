@@ -1,4 +1,4 @@
-a{
+a:link{
 	text-decoration: none;
 }
 .header{
@@ -16,8 +16,9 @@ a{
     padding-left:100px;
     padding-right:100px;
     padding-top: 20px;
-    padding-bottom: 2     0px;
+    padding-bottom: 20px;
 }
+
 .body{
     width: 100%;
     min-height: 560px;
@@ -30,6 +31,33 @@ a{
 	color:#ffffff;
 	font-size:16px;
 }
+#form-span{
+	border-radius: 4px;
+}
+#selected{
+}
+#tab{
+
+	margin-top: 0px;
+	border-bottom: 2px solid #ccc;
+	height:40px;
+	background-color: #fff;
+}
+#tabmenu{
+	padding: 10px;
+	display: inline-block;
+	min-height: 40px;
+	border-right: 1px solid #ccc;
+	text-decoration: none;
+}
+#tabmenu:hover{
+	background-color: #ecf0f1;
+}
+#tabmenu a:active{
+	background-color: #000;
+	color: #000;
+}
+
 #button:hover{
 	background-color:#fff;
 	color:#167ee1;
@@ -91,7 +119,7 @@ div span.input-group-addon{
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	text-align: center;
-	width: 40%;
+	width: 45%;
 	margin: auto;
 	margin-bottom: 20px;
 }
