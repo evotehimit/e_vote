@@ -35,7 +35,7 @@
 			    </div>
 			    <div class="kanan">
 			    	@if($hak_akses==0)
-			    		Administrator 
+			    		Administrator <a href="logout">Logout</a></div>
 			    	@elseif($hak_akses==1)
 			    		Operator
 			    	@elseif($hak_akses==2)

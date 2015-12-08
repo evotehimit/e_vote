@@ -37,7 +37,8 @@ class CandidateController extends Controller
                 'pribadika',
                 'pribadiwaka',
                 'cekcaka',
-                'cekcawaka'
+                'cekcawaka',
+                'user'
                 ));
         }
         else{
@@ -53,14 +54,7 @@ class CandidateController extends Controller
         $edit->save();
         return redirect()->action('CandidateController@dashboard');
     }
-    public function daftarcawaka(Request $request){
-        $id = $request->session()->get('kandidat');
-        $nrp_cawaka = $request->input('nrp_cawaka');
-        $edit = Candidate::find($id);
-        $edit->nrp_cawaka = $nrp_cawaka;
-        $edit->save();
-        return redirect()->action('CandidateController@dashboard');
-    }
+ 
     public function inputpribadi(Request $request){
         $input = new Pribadi;
         $input->nrp = $request->input('nrp');
@@ -86,5 +80,10 @@ class CandidateController extends Controller
         $filename = $file->getClientOriginalName();
         $destinationPath = 'berkas_kandidat/';
         $file->move($destinationPath, $filename);
+        $id = $request->session()->get('kandidat');
+        $update = Candidate::find($id);
+        $update->status_upload = 1;
+        $update->save();
+        return redirect()->action('CandidateController@dashboard');
     }
 }

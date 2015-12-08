@@ -7,7 +7,7 @@ use App\User;
 use App\Candidate;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Hash;
 class AdminController extends Controller
 {
    public function index(Request $request){
@@ -29,6 +29,14 @@ class AdminController extends Controller
          }
    }
    public function tambahkandidat(Request $request){
-
+        $input = new Candidate;
+        $input->username = $request->input('username');
+        $input->password = Hash::make('himitjaya');
+        $input->hak_akses = 3;
+        $input->nrp_caka = $request->input('nrp_caka');
+        $input->nrp_cawaka = $request->input('nrp_cawaka');
+        $input->status_upload = 0;
+        $input->save();
+        return redirect()->action('AdminController@dashboard');
    }
 }

@@ -23,12 +23,12 @@ class LoginCandidateController extends Controller
     public function postlogin(Request $request){
         $username = $request->input('username');
         $password = $request->input('password');
-        $data_login = Candidate::where('username', $username);
+        $data_login = Candidate::where('username', $username)->first();
         if($data_login->count()>0)
         {
-            if(Hash::check($password, $data_login->first()->password))
+            if(Hash::check($password, $data_login->password))
             {
-                $request->session()->put('kandidat', $data_login->get('id'));
+                $request->session()->put('kandidat', $data_login->id);
                 return redirect()->action('CandidateController@index');
             }
             else{

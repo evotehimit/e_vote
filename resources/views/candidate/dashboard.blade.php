@@ -1,4 +1,4 @@
-@extends('app')
+﻿@extends('app')
 @section('head')
 <script type="text/javascript">
 	function navigate_tabs(container, tab)
@@ -62,7 +62,7 @@
 			</div><br>
 			<div class="input-group"><input name="ip_1" required type="text" class="form-control" placeholder="Nilai IP Semester1"><span class="input-group-addon" id="warning">*</span></div><br>
 			<div class="input-group"><input name="ip_2" required type="text" class="form-control" placeholder="Nilai IP Semester2"><span class="input-group-addon" id="warning">*</span></div>
-			{!! Form::file('image') !!}
+			Foto : {!! Form::file('image') !!}
 			<hr>
 			<h5 style="color:red;">* Wajib Diisi!</h5>
 			<div align="center"><input class="btn btn-default" id="button" type="submit" value="Simpan dan Lanjutkan"></div>
@@ -100,7 +100,7 @@
 				      </select>
 				 <span class="input-group-addon" id="warning">*</span>
 			</div><br>
-			{!! Form::file('image') !!}
+			Foto : {!! Form::file('image') !!}
 		<hr>
 			<h5 style="color:red;">* Wajib Diisi!</h5>
 		</div>
@@ -255,17 +255,16 @@
 						</table>
 		</div>
 	</div>
-	<div class="download" align="left" style="padding:30px; min-height:500px">
+	<div class="download" align="left" style="padding:30px; min-height:500px; display:none;">
 		<div class="table" style="float:left; margin:5px; width:48%; min-height:370px">
 						<div><h3>Download File Disini :</h3></div><hr>
-						<a href="lampiran/Daftar_TSK_Suksesi_2015.docx">Formulir Daftar TSC</a><br>
-						<a href="lampiran/Formulir_Pendaftaran_Kandidat_2015.docx">Formulir Pendaftaran Kandidat</a><br>
-						<a href="lampiran/Surat_Ijin_Peminjaman_Flooring_KPU.docx">Surat Ijin Peminjaman Flooring KPU</a><br>
-						<a href="lampiran/Surat_Rekomendasi_Kandidat.docx">Surat Rekomendasi Kandidat</a><br>
+						<a href="lampiran/formulir_daftar_TSC.docx">Formulir Daftar TSC</a><br>
+						<a href="lampiran/Surat_izin_orang_tua_wali.doc">Surat Izin Orang Tua / Wali</a><br>
+						<a href="lampiran/Surat_rekomdasi_kaprodi_kadep.docx">Surat Rekomendasi dari Kaprodi D3 dan D4 dan Kadep</a><br>
 		</div>
 	</div>
 
-	<div class="upload" align="left" style="padding:30px; min-height:500px">
+	<div class="upload" align="left" style="padding:30px; min-height:500px; display:none;s">
 	<div class="table" style="float:left; margin:5px; width:48%; min-height:370px">
 		<div><h3>Document yang di Upload :</h3></div><hr>
 		<ul type="cycle" align="left">
@@ -277,10 +276,14 @@
 		</ul><br>
 
 				<div align="left"><h4>Upload File Disini :</h4></div>
+				@if($data->status_upload == 0)
 				{!! Form::open(array('id'=>'l-data', 'action'=>'CandidateController@upload', 'files'=>'true', 'method'=>'post')) !!}
 				{!! Form::file('data') !!}<hr>
 				{!! Form::submit('Sent') !!}
 				{!! Form::close() !!}
+				@else
+				Berkas File telah dikirim
+				@endif
 		</div>
 		
 		<div class="table" style="float:left; margin:5px; width:48%; min-height:370px">
@@ -299,7 +302,7 @@
 			<li>Rencana Strategis Kepengurusan HIMIT</li>
 			<li>Lampiran Fotocopy KTP</li>
 			<li>Lampiran Fotocopy smartcard/ KTM bagian depan</li>
-			<li>Lampiran Foto Copy/ KTM Tim SUkses Calon(TSC)</li>
+			<li>Lampiran Foto Copy/ KTM Tim Sukses Calon(TSC)</li>
 		</ul><br><hr>
 		</div>
 	</div>
